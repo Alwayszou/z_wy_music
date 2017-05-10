@@ -22,4 +22,9 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 
 A project to do with Vue
+
 2017.5.10  更新
+初步实现:
+1.首页部分内容
+2.歌单页
+3.正在播放页
