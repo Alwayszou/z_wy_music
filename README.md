@@ -6,13 +6,13 @@
 
 ## update:
 5.10 实现基本功能
-1.首页部分内容
-2.搜索歌曲
-3.播放歌曲及上下一首
+- 首页部分内容
+- 搜索歌曲
+- 播放歌曲及上下一首
 
 5.11
-1.首页显示优化
-2.改变时间功能
+- 首页显示优化
+- 改变时间功能
 
 ## stack:
 1.vue+vue-router+vuex+vue-resource
@@ -29,5 +29,3 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm ru
