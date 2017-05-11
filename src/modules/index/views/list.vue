@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<div id="mask"></div>
 		<div id="sheetBg" :style="background"></div>
 		<section id="sheetInfo" class="flex">
 			<div class="flex-1 tx-c">
@@ -9,7 +10,7 @@
 				<div class="sheetName mb20 f16 c-white">{{info.name}}</div>
 				<div class="creator flex flex-vertical-middle">
 					<div><img :src="creator.avatarUrl" class="avatarUrl"></div>
-					<span class="flex-1">{{creator.nickname}}</span>
+					<span class="flex-1 c-white">{{creator.nickname}}</span>
 				</div>
 			</div>
 		</section>
@@ -76,13 +77,10 @@
 					})
 			},
 			turnToPlaying(v,singer){
-				// if (v.al.picUrl) {
-				// 	this.$store.commit('setAlbum', v.al.picUrl);
-				// }
 				let sing = {
 					id:v.id,
 					url:'',
-					name:v.al.name,
+					name:v.name,
 					singer:singer,
 					album:v.al.picUrl
 				}
@@ -96,8 +94,10 @@
 </script>
 
 <style scoped>
-	#sheetBg {background-size: cover;background-repeat: no-repeat;height: 4rem; filter: blur(50px);}
-	#sheetInfo {padding: .4667rem;position: absolute;top: 0;width: 100%;box-sizing: border-box;}
+	#sheetBg {background-size: cover;background-repeat: no-repeat;height: 4rem; filter: blur(50px);background-position: center;}
+	#mask {position: absolute;top: 0;bottom: 0;left: 0;
+    z-index: 3;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.8);opacity: .3;height: 4rem;}
+	#sheetInfo {padding: .4667rem;position: absolute;top: 0;width: 100%;box-sizing: border-box;z-index: 99;}
 	.sheetImg {width: 3rem;margin-right: .2667rem;}
 	.avatarUrl {width: 1rem;border-radius: 100%;margin-right: .2667rem;}
 	#songList {padding: .4667rem 0;}

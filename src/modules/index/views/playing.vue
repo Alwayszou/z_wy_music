@@ -12,14 +12,14 @@
 				</div>		
 				<div id="warp">
 					<div class="mask rel"></div>
-					<img :src="sing.album" id="cover" :class="{'rotate':play}">
+					<div><img :src="sing.album" id="cover" :class="{'rotate':play}"></div>
 				</div>
 				<div id="lrc" class="f16 c-white mt10">{{lrcText}}</div>
 			</section>
 			<section id="progress" class="rel flex flex-vertical-middle">
 				<div class="playingTime c-white mr10">{{playingTime | time}}</div>
-				<div class="pointer" :style="{'-webkit-transform':'translateX(' + percent +'rem)' }"></div>
-				<div class="axis flex-1"></div>
+				<div class="pointer" :style="{'-webkit-transform':'translateX(' + percent +'rem)' }" ref="pointer"></div>
+				<div class="axis flex-1" @click="changeTime($event)"></div>
 				<div class="totalTime c-white ml10">{{totalTime | time}}</div>
 			</section>
 			<section id="control" class="flex tx-c">
@@ -91,9 +91,13 @@
 		    		}   	
 		    	}
 		    },
+		    changeTime(e){
+		    	this.$refs.audio.currentTime = (parseInt(e.offsetX/7.5/48*this.$refs.audio.duration));
+		    },
 		    audioEnd(){
 		    	this.play = false;
 		    	this.playorpause = '/static/img/play.png';
+		    	this.playNext();
 		    },
 		    playMusic(){
 		    	if (this.play) {
@@ -159,7 +163,7 @@
 </script>
 
 <style scoped>
-	.container{background-size: cover;background-repeat: no-repeat;filter: blur(50px);position: absolute;top:0;width: 100%;height: 100%;}
+	.container{background-size: cover;background-repeat: no-repeat;filter: blur(50px);position: absolute;top:0;width: 100%;height: 100%;background-position: center;}
 	#info {height: 1rem;color: #fff;text-align: center;line-height: 1rem;}
 	.line {background: radial-gradient(#d3d3d3 -90%, transparent 100%);height: 2px;position: absolute;bottom:0;width: 100%;}
 	.hlin {height: 3rem;}

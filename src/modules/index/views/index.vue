@@ -67,7 +67,7 @@
 						<div id="sheet" class="overh">
 							<div class="single_sheet" v-for="(v,i) in sheetList" @click="turnToSheet(v.id,v.coverImgUrl)">
 								<div class="playCount">{{v.playCount | countDisplay}}</div>
-								<img :src="v.coverImgUrl">
+								<img :src="v.coverImgUrl+'?param=230y230'">
 								<span class="sheet_name">{{v.name}}</span>
 							</div>
 						</div>
@@ -201,7 +201,7 @@
 	.playCount {position: absolute;width: 100%;text-align: right;background-color: rgba(0, 0, 0, 0.2);color: #fff;}
 	.single_sheet {width: 32%;margin-right: 1%;box-sizing: border-box;display: inline-block;position: relative;}
 	.single_sheet img {width: 100%;}
-	.sheet_name {overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:2;    display: -webkit-box;-webkit-box-orient: vertical;}
+	.sheet_name {overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:2;    display: -webkit-box;-webkit-box-orient: vertical;min-height: 1rem;}
 	.my-swipe {height: 4rem;color: #fff;font-size: 30px;text-align: center;}
     #toploadingText {text-align: center;margin-bottom: .2667rem;}
     #index_search {border: none;width: 100%;border-radius: .4667rem;height: 1rem;padding-left: .8667rem;}
