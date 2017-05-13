@@ -2,7 +2,7 @@
     邮箱:306555634@qq.com
 
 ## example:  
-
+![example](https://github.com/Alwayszou/z_wy_music/blob/master/static/img/example2.gif)
 
 ## update:
 5.10 实现基本功能
@@ -13,6 +13,9 @@
 5.11
 - 首页显示优化
 - 改变时间功能
+
+5.13
+- 播放页面优化
 
 ## stack:
 1.vue+vue-router+vuex+vue-resource
