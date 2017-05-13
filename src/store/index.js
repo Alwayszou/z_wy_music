@@ -93,6 +93,9 @@ const store = new Vuex.Store({
 										.then((res)=>{
 											if (res.body.code===200) {
 												let location = res.body.data[0].url;
+												if (!location) {
+													window.alert('无法获取歌曲地址');
+												}
 												commit('setLocation',location);
 											}
 										})

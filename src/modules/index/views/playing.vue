@@ -83,6 +83,9 @@
 		    updateTime(){
 		    	if (this.$refs.audio) {
 		    		this.playingTime =  this.$refs.audio.currentTime;
+		    		if (!isNaN(this.$refs.audio.duration)) {
+		    			this.totalTime = this.$refs.audio.duration;
+		    		}		    		
 		    		this.percent = 4.8*(this.$refs.audio.currentTime/this.$refs.audio.duration);
 		    		for(let i in this.lrc){
 		    			if (parseInt(this.$refs.audio.currentTime) == this.lrc[i].time) {
@@ -173,6 +176,7 @@
 	#cover {position: absolute;top: 4rem;left: 2.7rem;height: 4.5rem;border-radius: 50%;z-index: 2;}
 	.main {position: relative;z-index: 99;}
 	.mask {background: url('/static/img/coverall.png') no-repeat;height: 100%;background-size: cover;}
+	#lrc {min-height: .2667rem;}
 	.container_mask {position: absolute;top: 0;bottom: 0;left: 0;
     z-index: 3;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.8);opacity: .6;}
     #progress {padding: 1rem 1.5rem;}
