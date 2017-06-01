@@ -90,15 +90,15 @@ const store = new Vuex.Store({
 			}
 			async function getsongUrl(){
 				let symbol = await songSheetList.get(ops)
-										.then((res)=>{
-											if (res.body.code===200) {
-												let location = res.body.data[0].url;
-												if (!location) {
-													window.alert('无法获取歌曲地址');
-												}
-												commit('setLocation',location);
-											}
-										})
+					.then((res)=>{
+						if (res.body.code===200) {
+							let location = res.body.data[0].url;
+							if (!location) {
+								window.alert('无法获取歌曲地址');
+							}
+							commit('setLocation',location);
+						}
+					})
 			}
 			getsongUrl().then(function(){
 				document.getElementById('audioPlay').play();				
