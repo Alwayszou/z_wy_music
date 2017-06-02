@@ -13,6 +13,10 @@ body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legen
 img { border:0 none;}
 input{outline: 0;}
 
+/*base-s*/
+@baseDistance:0.1333rem;
+/*base-e*/
+
 /*表现对齐和宽度-s*/
 .overh {overflow: hidden;}
 .db {display: block;}
@@ -44,12 +48,13 @@ input{outline: 0;}
 
 /*padding margin-s*/
 .ma {margin: 0 auto;}
-.p10 {padding: .1333rem;}
-.p20 {padding: .2667rem;}
-.mt10 {margin-top: .1333rem;}
-.ml10 {margin-left: .1333rem;}
-.mr10 {margin-right: .1333rem;}
-.mb20 {margin-bottom:.2667rem; }
+.p10 {padding: @baseDistance;}
+.p20 {padding: @baseDistance*2;}
+.mt10 {margin-top: @baseDistance;}
+.mt20 {margin-top: @baseDistance*2;}
+.ml10 {margin-left: @baseDistance;}
+.mr10 {margin-right: @baseDistance;}
+.mb20 {margin-bottom:@baseDistance*2; }
 /*padding margin-e*/
 
 /*fontsize-s*/
