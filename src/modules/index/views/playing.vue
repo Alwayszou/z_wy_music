@@ -44,12 +44,12 @@
 			return {
 				imgUrl:getUrlParam('img'),
 				name:getUrlParam('name'),
-				play:true,
+				play:false,
 				percent:0,
 				lrcText:' ',
 				playingTime:0,
 				totalTime:0,
-				playorpause:'/static/img/pause.png',
+				playorpause:'/static/img/play.png',
 				stickImg:'../../../static/img/stick_bg.png',
 				coverImg:'',
 				background:{
@@ -76,7 +76,7 @@
 		    ]),
 		    getSingTime(){
 		    	let _this = this;
-		    	this.$refs.audio.onloadedmetadata = function(){			
+		    	this.$refs.audio.onloadedmetadata = function(){	
 					_this.totalTime = _this.$refs.audio.duration;
 				}
 		    },
@@ -104,12 +104,12 @@
 		    },
 		    playMusic(){
 		    	if (this.play) {
-		    		this.$refs.audio.pause();
 		    		this.playorpause = '/static/img/play.png';
+		    		this.$refs.audio.pause();		    		
 		    	}
 		    	else{
-		    		this.$refs.audio.play();
 		    		this.playorpause = '/static/img/pause.png';
+		    		this.$refs.audio.play();
 		    	}
 		    	this.play = !this.play;
 		    },
@@ -176,12 +176,12 @@
 	#cover {position: absolute;top: 4rem;left: 2.7rem;height: 4.5rem;border-radius: 50%;z-index: 2;}
 	.main {position: relative;z-index: 99;}
 	.mask {background: url('/static/img/coverall.png') no-repeat;height: 100%;background-size: cover;}
-	#lrc {min-height: .2667rem;}
+	#lrc {min-height: .8rem;}
 	.container_mask {position: absolute;top: 0;bottom: 0;left: 0;
     z-index: 3;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.8);opacity: .6;}
-    #progress {padding: 1rem 1.5rem;}
+    #progress {padding: 1rem 1.35rem;}
     .axis {width: 100%;height: 2px;background-color: #bdbdbd;border-radius: 10px;}
-    .pointer {height: .3rem;width: .3rem;background-color: #ce3d3e;border-radius: 50%;position: absolute;left:2.5rem;}
+    .pointer {height: .3rem;width: .3rem;background-color: #ce3d3e;border-radius: 50%;}
 
 	.rotate {animation: rotating 10s linear .3s infinite}
 	@keyframes rotating {

@@ -64,8 +64,9 @@
 							<div>推荐歌单</div>
 							<div class="flex-1 more">更多></div>
 						</div>
+						<Loading v-if="loadingShow"></Loading>
 						<div id="sheet" class="overh">
-							<div class="single_sheet" v-for="(v,i) in sheetList" @click="turnToSheet(v.id,v.coverImgUrl)">
+							<div class="single_sheet mb20" v-for="(v,i) in sheetList" @click="turnToSheet(v.id,v.coverImgUrl)">
 								<div class="playCount">{{v.playCount | countDisplay}}</div>
 								<img :src="v.coverImgUrl+'?param=230y230'">
 								<span class="sheet_name">{{v.name}}</span>
@@ -83,9 +84,10 @@
 	import { Swipe, SwipeItem } from 'vue-swipe';
 	import { Loadmore } from 'mint-ui';
 	import { songSheetList , wy_musicAPI } from '../../../api/'
+	import Loading from '../../../components/loading'
 
 	export default {
-		components:{ Swipe, SwipeItem, Loadmore },
+		components:{ Swipe, SwipeItem, Loadmore, Loading },
 		data(){
 			return {
 				sheetList:[],
@@ -96,7 +98,8 @@
 				show:true,
 				singer:[],
 				searchList:[],
-				key:''
+				key:'',
+				loadingShow:true
 			}
 		},
 		computed:{
@@ -142,6 +145,7 @@
 					.then((res)=>{
 						if (res.body.code===200) {
 							this.sheetList = res.body.playlists;
+							this.loadingShow = false;
 						}
 					})
 			},
@@ -202,9 +206,9 @@
 	#modules_title {margin: .4667rem 0 .2667rem 0;padding-left: .2667rem;border-left: 5px solid #d43c33;}
 	.more {text-align: right;padding-right: 1%;color: @base;}
 	.playCount {position: absolute;width: 100%;text-align: right;background-color: rgba(0, 0, 0, 0.2);color: #fff;}
-	.single_sheet {width:@32;margin-right: 1%;box-sizing: border-box;display: inline-block;position: relative;}
+	.single_sheet {width:@32;margin-right: 1%;box-sizing: border-box;display: inline-block;position: relative;float:left;}
 	.single_sheet img {width: 100%;}
-	.sheet_name {overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:2;    display: -webkit-box;-webkit-box-orient: vertical;min-height: 1rem;}
+	.sheet_name {overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:2;    display: -webkit-box;-webkit-box-orient: vertical;min-height: 1rem;padding:0 5px;}
 	.my-swipe {height: 4rem;color: #fff;font-size: 30px;text-align: center;}
     #toploadingText {text-align: center;margin-bottom: .2667rem;}
     #index_search {border: none;width: 100%;border-radius: .4667rem;height: 1rem;padding-left: .8667rem;}
@@ -221,4 +225,5 @@
 	.songItem {padding: .3rem .5rem 0 0;line-height: .6667rem;}
 	.itemBorder {border-bottom: 1px solid #eee;}
 	.singInfo {padding: .0677rem 0;overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:1;    display: -webkit-box;-webkit-box-orient: vertical;}
+	.loading-container {height:3rem;}
 </style>

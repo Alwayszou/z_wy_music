@@ -101,7 +101,12 @@ const store = new Vuex.Store({
 					})
 			}
 			getsongUrl().then(function(){
-				document.getElementById('audioPlay').play();				
+				// document.getElementById('audioPlay').play();
+				// WeixinJSBridge.invoke('getNetworkType', {}, function(e) {
+				//     // 在这里拿到 e.err_msg, 这里面就包含了所有的网络类型
+				//     // alert(e.err_msg);
+				//     document.getElementById('audioPlay').play();
+				//  });
 			})		
 		}
 	}

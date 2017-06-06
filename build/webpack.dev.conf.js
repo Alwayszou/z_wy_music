@@ -31,7 +31,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 //公用css添加到webpack hot middleware
-glob.sync('./src/common_css/*.less').forEach(function (v, k){
+glob.sync('./src/common_css/*.css').forEach(function (v, k){
     baseWebpackConfig.entry[path.basename(v)] = v;
 });
 

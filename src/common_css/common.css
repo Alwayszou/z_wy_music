@@ -14,7 +14,6 @@ img { border:0 none;}
 input{outline: 0;}
 
 /*base-s*/
-@baseDistance:0.1333rem;
 /*base-e*/
 
 /*表现对齐和宽度-s*/
@@ -48,13 +47,13 @@ input{outline: 0;}
 
 /*padding margin-s*/
 .ma {margin: 0 auto;}
-.p10 {padding: @baseDistance;}
-.p20 {padding: @baseDistance*2;}
-.mt10 {margin-top: @baseDistance;}
-.mt20 {margin-top: @baseDistance*2;}
-.ml10 {margin-left: @baseDistance;}
-.mr10 {margin-right: @baseDistance;}
-.mb20 {margin-bottom:@baseDistance*2; }
+.p10 {padding: 0.1333rem;}
+.p20 {padding: 0.2667rem;}
+.mt10 {margin-top: 0.1333rem;}
+.mt20 {margin-top: 0.2667rem;}
+.ml10 {margin-left: 0.1333rem;}
+.mr10 {margin-right: 0.1333rem;}
+.mb20 {margin-bottom:0.2667rem; }
 /*padding margin-e*/
 
 /*fontsize-s*/

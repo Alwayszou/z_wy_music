@@ -18,7 +18,7 @@ InsertGlobalCss.prototype.apply = function(compiler) {
     compiler.plugin('compilation', function(compilation, options) {
         compilation.plugin('html-webpack-plugin-before-html-processing', function(htmlPluginData, callback) {
             if(env.NODE_ENV === 'development' || env.NODE_ENV === 'debug'){
-                var cssText = '<style lang="less">';
+                var cssText = '<style type="text/css">';
                 path.forEach(function (v, k){
                     var css = jetpack.read(v);
                     cssText += css;

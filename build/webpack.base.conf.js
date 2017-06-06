@@ -83,7 +83,7 @@ module.exports = {
     //     header_metadata: path.resolve(__dirname, '../src/common_html/header_metadata.html')
     // },
     plugins: [
-        new InsertGlobalCss(glob.sync('./src/common_css/*.less')),
+        new InsertGlobalCss(glob.sync('./src/common_css/*.css')),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"'+env.NODE_ENV+'"'

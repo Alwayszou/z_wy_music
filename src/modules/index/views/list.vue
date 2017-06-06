@@ -19,6 +19,7 @@
 				<div class="songIndex"></div>
 				<span class="itemBorder flex-1 titleText">播放列表（共{{songListLength}}首）</span>
 			</div>
+			<Loading v-if="LoadingShow"></Loading>
 			<div v-for="(v,i) in songList" class="flex flex-vertical-middle songItem">
 				<div class="songIndex f18">{{i+1}}</div>
 				<div class="flex-1 itemBorder" @click="turnToPlaying(v,singer[i])">
@@ -33,8 +34,10 @@
 <script>
 	import { wy_musicAPI } from '../../../api/'
 	import { getUrlParam } from '../../../utils/'
+	import Loading from '../../../components/loading'
 
 	export default {
+		components:{ Loading },
 		data(){
 			return {
 				info:'',
@@ -45,7 +48,8 @@
 				},
 				singer:[],
 				songList:[],
-				songListLength:''
+				songListLength:'',
+				LoadingShow:true
 			}
 		},
 		mounted(){
@@ -73,6 +77,7 @@
 								}
 								this.singer.push(name);
 							}
+							this.LoadingShow = false;
 						}
 					})
 			},
@@ -107,4 +112,5 @@
 	.itemBorder {border-bottom: 1px solid #eee;}
 	.titleText {padding: .5rem 0;}
 	.singInfo {padding: .0677rem 0;overflow: hidden;text-overflow:ellipsis;-webkit-line-clamp:1;    display: -webkit-box;-webkit-box-orient: vertical;}
+	.loading-container {height:5rem;}
 </style>
